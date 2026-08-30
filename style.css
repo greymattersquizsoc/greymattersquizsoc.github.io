@@ -1,0 +1,2441 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Global Particle Background Fix --- */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Puts it firmly behind all your text and buttons */
+    pointer-events: none; /* Ensures it doesn't block you from clicking links */
+    transition: filter 0.8s ease;
+}
+
+/* This class will be applied by JS when you hover */
+.gold-particles-active #particle-canvas {
+    /* Sepia + Hue-Rotate flawlessly tints white particles to champagne gold */
+    filter: sepia(100%) hue-rotate(5deg) saturate(400%) brightness(1.1);
+}
+
+/* --- Selection & Dragging Overrides --- */
+
+/* Custom Text Highlight Color */
+::selection {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-shadow: none;
+}
+::-moz-selection {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-shadow: none;
+}
+
+/* 2. Prevent selection on UI elements, images, and structural text */
+img, 
+h1, h2, h3, h4, 
+.nav-links, 
+.btn-formal, 
+.roadmap-step, 
+.registry-teaser {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    -webkit-user-drag: none; /* Prevents ghost-dragging images */
+}
+
+body {
+    background-color: #050505; /* Deep, tech-focused black */
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Adds a microscopic cinematic static overlay to the whole site */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03; /* Extremely subtle */
+    z-index: 9999;
+    pointer-events: none; /* So it doesn't block clicks */
+}
+
+/* ==========================================
+   GLOBAL CUSTOM SCROLLBAR (TERMINAL THEME)
+   ========================================== */
+
+/* Firefox Support */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #050505;
+}
+
+/* WebKit (Chrome, Edge, Safari) Support */
+::-webkit-scrollbar {
+    width: 10px; /* Sleek, thin profile */
+}
+
+/* The track (background) the scrollbar slides in */
+::-webkit-scrollbar-track {
+    background: #050505; /* Matches your dark aesthetic */
+    border-left: 1px solid rgba(255, 255, 255, 0.05); /* Subtle dividing line */
+}
+
+/* The draggable scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background: rgba(85, 85, 85, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px; /* Sharp, terminal-style edges */
+    transition: background 0.3s ease;
+}
+
+/* When hovering over the scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Typography */
+h1, .nav-brand {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(5, 5, 5, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #222;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Adds perfect spacing between the logo and the text */
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.nav-brand:hover {
+    text-decoration: none;
+}
+
+/* New rule for the small navigation logo */
+.nav-logo {
+    height: 40px; /* Keeps it small enough to fit the header */
+    width: auto;
+    mix-blend-mode: screen; /* Removes the black JPEG background */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* Accent Button */
+.btn-accent {
+    border: 1px solid #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background: #fff;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Offset for fixed navbar */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-logo {
+    width: 290px;
+    margin-bottom: 0; /* Changed this line to remove the spacing */
+    mix-blend-mode: screen; 
+}
+
+.glow-text {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    letter-spacing: 4px;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1; /* This pushes it to the very back */
+}
+
+/* General Section Formatting */
+.section {
+    padding: 6rem 10%;
+    position: relative;
+    z-index: 10; /* Ensures the text stays above the particle background */
+    background: rgba(5, 5, 5, 0.4); /* Slight transparency to let the particles show */
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+/* Events Grid */
+.card-grid {
+    display: grid;
+    /* This automatically creates columns that fit the screen size */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem;
+}
+
+/* Glassmorphism Event Cards */
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(5px); /* Creates the frosted glass effect */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Card floats up slightly when hovered */
+    border-color: #ffffff;
+}
+
+.card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.card p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+/* --- Methodology & Roadmap --- */
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-top: -2rem;
+    margin-bottom: 4rem;
+    letter-spacing: 1px;
+}
+
+/* The Roadmap Flexbox */
+.roadmap {
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing */
+    align-items: flex-start; /* Aligns items at the top */
+    max-width: 1100px; /* Widened to accommodate 5 steps */
+    margin: 0 auto 5rem auto;
+    gap: 1rem;
+}
+
+.roadmap-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative; /* This is crucial for positioning the hover panel */
+    cursor: default;
+}
+
+/* Lights up the number slightly when hovering over the step */
+.roadmap-step:hover .step-num {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* The hidden data-panel */
+.hover-panel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid #333;
+    padding: 1.2rem;
+    width: 220px;
+    color: #bbb;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: left;
+    
+    /* Animation defaults */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    z-index: 50;
+    border-radius: 2px;
+}
+
+/* A subtle accent line at the top of the panel */
+.hover-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #888, transparent);
+}
+
+/* The hover trigger */
+.roadmap-step:hover .hover-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Slides up smoothly */
+}
+
+.step-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem; /* Slightly smaller for elegance */
+    color: #555;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.step-details h3 {
+    color: #eee;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.step-details p {
+    color: #888;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 150px; /* Keeps the text constrained and readable */
+}
+
+.roadmap-divider {
+    height: 1px;
+    width: 30px;
+    background: #333;
+    margin-top: 1.2rem; /* Aligns with the new number size */
+    flex-shrink: 0;
+}
+
+/* --- The Application Container --- */
+.application-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(15, 15, 15, 0.6);
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+}
+
+.question-box {
+    padding: 3rem 4rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.question-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #aaa;
+    text-align: justify;
+    font-weight: 300;
+}
+
+/* Target clues in the question (subtle until activated) */
+.muted-target {
+    color: #aaa;
+    transition: all 0.5s ease;
+}
+
+.muted-target.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 4px;
+    border-radius: 2px;
+}
+
+/* Analysis Board */
+.analysis-board {
+    padding: 2.5rem 4rem;
+    text-align: center;
+}
+
+.btn-formal {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+    font-family: 'Orbitron', sans-serif;
+    padding: 0.8rem 2.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-formal:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* The Sequential Breakdown Breakdown */
+.breakdown-hidden {
+    display: none;
+}
+
+.breakdown-visible {
+    display: block;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.breakdown-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease;
+}
+
+.breakdown-row.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.b-label {
+    font-family: 'Orbitron', sans-serif;
+    color: #666;
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+}
+
+.b-text {
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding-left: 1rem;
+    border-left: 2px solid #444;
+}
+
+.final-answer {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+    margin-top: 3rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.final-answer.show {
+    opacity: 1;
+}
+
+/* --- The Terminus Section --- */
+.terminus-section {
+    min-height: 50vh; /* Gives the section massive, elegant breathing room */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.03); /* Extremely subtle dividing line */
+    background: linear-gradient(to bottom, transparent, rgba(5, 5, 5, 0.9));
+}
+
+.axiom {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem; /* Massive, cinematic text */
+    color: #444; /* Dark charcoal for the first line */
+    letter-spacing: 6px;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+}
+
+.axiom-highlight {
+    color: #fff; /* Stark white */
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15); /* Soft, elegant glow */
+    font-weight: 700;
+}
+
+/* The Grand Induction Teaser Console */
+.registry-teaser {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem 3.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 2px;
+    position: relative;
+    user-select: none;
+    
+    /* A cinematic, breathing glow to build excitement without neon */
+    animation: anticipation-glow 4s infinite ease-in-out;
+}
+
+@keyframes anticipation-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.02); }
+    50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.3); }
+}
+
+/* The Massive, Elegant Year Typography */
+.teaser-year {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+    border-right: 1px solid #333;
+    padding-right: 1.5rem;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+/* The Stacked Announcement Details */
+.teaser-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.teaser-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 5px;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.teaser-status {
+    font-family: 'Inter', sans-serif;
+    color: #777;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* A slow, sweeping reflection of light across the box */
+.registry-teaser::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    animation: teaser-scan 6s infinite linear;
+}
+
+@keyframes teaser-scan {
+    100% { left: 200%; }
+}
+
+/* --- Institutional Sign-Off (Footer) --- */
+.institutional-footer {
+    background: #050505; /* Deepest black to cap off the page */
+    border-top: 1px solid #222;
+    padding: 5rem 10% 2rem 10%;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Brand column is wider */
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Footer Brand Column */
+.footer-identity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-crest {
+    height: 50px;
+    width: auto;
+    filter: grayscale(100%); /* Keeps the logo stark and elegant */
+    mix-blend-mode: screen;
+    opacity: 0.8;
+}
+
+.footer-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.2rem;
+}
+
+.footer-sub {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.footer-desc {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 350px;
+}
+
+/* Column Headers */
+.column-header {
+    font-family: 'Orbitron', sans-serif;
+    color: #666;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5rem;
+}
+
+/* Footer Navigation Links */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* Contact Details */
+.contact-details p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+}
+
+.contact-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Final Copyright Closure */
+.footer-closure {
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 2rem;
+}
+
+.footer-closure p {
+    color: #444;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Mobile Responsiveness for Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* --- Cinematic Scroll Reveals --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Pushes the element down slightly */
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Elegant, cinematic deceleration */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Brings it back to its normal resting place */
+}
+
+/* Optional: Stagger the roadmap steps slightly if they are revealed together */
+.roadmap-step.reveal { transition-delay: 0.1s; }
+.roadmap-step.reveal:nth-child(3) { transition-delay: 0.2s; }
+.roadmap-step.reveal:nth-child(5) { transition-delay: 0.3s; }
+
+/* --- Precision Custom Cursor --- */
+
+/* Hide the default system cursor on desktop */
+@media (min-width: 769px) {
+    body, a, button, .roadmap-step, .btn-formal {
+        cursor: none !important;
+    }
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    pointer-events: none; /* Allows you to click 'through' the cursor */
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    /* We handle movement in JS, but we handle the hover shape-change in CSS */
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover State - Activated via JavaScript */
+.cursor-ring.target-locked {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #fff;
+}
+
+.cursor-dot.target-locked {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Completely hide custom cursor on mobile screens */
+@media (max-width: 768px) {
+    .cursor-dot, .cursor-ring {
+        display: none !important;
+    }
+}
+
+/* --- Resource Directory Header --- */
+.page-header {
+    text-align: center;
+    padding: 10rem 2rem 4rem 2rem; /* Pushes it down below the nav bar */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 6px;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* --- Core Curriculum (Grid) --- */
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.curriculum-item {
+    border-top: 1px solid #222;
+    padding-top: 1.5rem;
+    transition: border-color 0.4s ease;
+}
+
+.curriculum-item:hover {
+    border-top: 1px solid #aaa; /* Elegant, stark hover */
+}
+
+.meta-tag {
+    font-family: 'Orbitron', sans-serif;
+    color: #555;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.text-title { 
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif; 
+    color: #fff; 
+    font-size: 1.1rem; 
+    letter-spacing: 1.5px; 
+    margin-bottom: 0.4rem; 
+    text-decoration: none; /* Removes the underline */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Adds a sleek glow when hovering over the book titles */
+.text-title:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.text-author {
+    color: #777;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.text-desc {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* --- Primary Databases (Interactive List) --- */
+.database-list {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.database-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #222;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.database-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid #fff;
+    padding-left: 1rem; /* Indents slightly when hovered */
+}
+
+.db-domain {
+    font-family: 'Orbitron', sans-serif;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    width: 180px; /* Keeps domains aligned in a column */
+    flex-shrink: 0;
+}
+
+.db-info {
+    flex-grow: 1;
+}
+
+.db-name {
+    font-family: 'Orbitron', sans-serif;
+    color: #eee;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.db-purpose {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.db-link-icon {
+    font-family: 'Orbitron', sans-serif;
+    color: #555;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.database-row:hover .db-link-icon {
+    color: #fff;
+}
+
+/* Mobile Adjustments for Databases */
+@media (max-width: 768px) {
+    .database-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .db-domain {
+        width: auto;
+        margin-bottom: 0.5rem;
+    }
+    .db-link-icon {
+        display: none; /* Hides arrow on mobile to save space */
+    }
+}
+
+/* ==========================================
+   11. ROSTER PAGE SPECIFICS
+   ========================================== */
+
+/* Community Mandate Text */
+.roster-intro {
+    max-width: 800px;
+    margin: 0 auto 5rem auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Subtle corner accents for a tech feel */
+.roster-intro::before, .roster-intro::after {
+    content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid #555;
+}
+.roster-intro::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.roster-intro::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.intro-heading {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.intro-text {
+    color: #999;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Ranks Grid */
+.roster-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rank-card {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+.rank-card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(20, 20, 20, 0.8);
+    transform: translateX(10px); /* Smoothly slides right when hovered */
+    box-shadow: -5px 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.rank-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.8rem;
+}
+
+.rank-level {
+    font-family: 'Orbitron', sans-serif;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.rank-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+}
+
+.rank-body p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .roster-intro { padding: 2rem 1.5rem; }
+    .rank-card { padding: 1.5rem; transform: none !important; }
+    .rank-header { flex-direction: column; gap: 0.3rem; }
+}
+
+/* ==========================================
+   12. JOIN US PAGE SPECIFICS
+   ========================================== */
+
+/* Process Grid (The 3 Steps) */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* The connecting line behind the steps */
+.process-grid::before {
+    content: '';
+    position: absolute;
+    top: 30px; 
+    left: 10%; 
+    width: 80%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.process-step {
+    background: #050505; /* Matches background to mask the line behind it */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.step-number {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid #555;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-number {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.step-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #eee;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.step-desc {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* The 2026 Terminal CTA */
+.cta-terminal {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.cta-status {
+    font-family: 'Inter', sans-serif;
+    color: #777;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* An animated scanning/loading bar for aesthetic appeal */
+.cta-pulse-bar {
+    width: 100px;
+    height: 2px;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: scan-pulse 2s infinite ease-in-out;
+}
+
+@keyframes scan-pulse {
+    0% { width: 50px; opacity: 0.3; }
+    50% { width: 150px; opacity: 1; }
+    100% { width: 50px; opacity: 0.3; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .process-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .process-grid::before { display: none; /* Removes horizontal line on mobile */ }
+    .cta-title { font-size: 1.5rem; }
+}
+
+/* ==========================================
+   13. INTERACTIVE FAQ SECTION
+   ========================================== */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(20, 20, 20, 0.8);
+}
+
+.faq-question {
+    font-family: 'Orbitron', sans-serif;
+    color: #eee;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    padding: 1.5rem;
+    cursor: pointer;
+    list-style: none; /* Removes default HTML arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hides default arrow in WebKit browsers */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom + icon */
+.faq-question::after {
+    content: '+';
+    color: #555;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Rotates the + into an X when the FAQ is open */
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+    color: #fff;
+}
+
+.faq-answer {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    border-top: 1px solid transparent;
+}
+
+/* Adds a sleek divider line when the answer expands */
+.faq-item[open] .faq-answer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    animation: fade-in-down 0.4s ease forwards;
+}
+
+@keyframes fade-in-down {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   14. ARCHIVE PAGE SPECIFICS
+   ========================================== */
+
+/* Featured Dispatch Block */
+.featured-article {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.featured-article:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.article-meta {
+    display: flex;
+    flex-direction: column; /* Stacks the tags and dates vertically */
+    align-items: flex-start;
+    gap: 8px; /* Adds space between the tag and date */
+    margin-bottom: 1.5rem;
+    height: auto; /* Lets the box grow as needed */
+}
+
+.article-tag {
+    font-family: 'Orbitron', sans-serif;
+    color: #888;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    word-break: break-word; /* Stops long titles from breaking the box */
+}
+
+.article-date {
+    font-family: 'Orbitron', sans-serif;
+    color: #555;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.featured-title {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.featured-excerpt {
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-author {
+    font-family: 'Orbitron', sans-serif;
+    color: #777;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+}
+
+/* Dispatch Grid */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.archive-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    /* Ensure it has a subtle default border */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+/* The invisible scanner line waiting at the top */
+.archive-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: left 0.6s ease;
+    z-index: 10;
+}
+
+/* On hover: Card floats up, shadow deepens, and the scanner sweeps */
+.archive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.archive-card:hover::after {
+    left: 100%;
+}
+
+.card-title {
+    font-family: 'Inter', sans-serif;
+    color: #eee;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.card-excerpt {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Pushes the 'read more' link to the bottom */
+}
+
+/* Shared Read More Link */
+.read-more {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    align-self: flex-start;
+}
+
+.read-more:hover {
+    color: #aaa;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+    .archive-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .archive-grid { grid-template-columns: 1fr; }
+    .featured-article { padding: 2rem; }
+    .featured-title { font-size: 1.8rem; }
+    .article-footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* ==========================================
+   15. ARCHIVE SLIDER (SWIPEABLE BANNER)
+   ========================================== */
+
+.slider-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome/Safari */
+}
+
+/* Redefining the featured article to work as a slide */
+.slider-container .featured-article.slide {
+    min-width: 100%; /* Forces each article to take up the full banner width */
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    margin: 0; 
+}
+
+/* The interactive navigation dots */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+/* ==========================================
+   15b. ARCHIVE SLIDER ARROWS (TRANSPARENT HUD)
+   ========================================== */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    z-index: 10;
+    
+    /* Fully transparent so it never blocks the article text */
+    background: transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle wireframe border */
+    border-radius: 2px; 
+    width: 50px;
+    height: 80px; 
+    
+    color: #888; 
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem; 
+    font-weight: 300;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* Removed the blur filter so text underneath remains crisp */
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.03); /* Just a whisper of a highlight */
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); 
+    transform: translateY(-50%) scale(1.05); 
+}
+
+/* Push them slightly further in from the edges for better framing */
+.prev-arrow {
+    left: 20px;
+}
+
+.next-arrow {
+    right: 20px;
+}
+
+/* Hide arrows on mobile since touch-swiping is intuitive there */
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+    }
+}
+
+/* ==========================================
+   16. EVENTS PAGE SPECIFICS
+   ========================================== */
+
+/* The Upcoming Intra Terminal */
+.upcoming-terminal {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid #fff; /* Strong highlight edge */
+    padding: 3rem;
+    position: relative;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* Blinking effect for the radar dot */
+.pulsing {
+    animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.status-text {
+    font-family: 'Orbitron', sans-serif;
+    color: #aaa;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.upcoming-title {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.upcoming-desc {
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+}
+
+.terminal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.footer-alert {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Flagship Event Dossier (Rethink. Rewire.) */
+.dossier-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(5, 5, 5, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dossier-header {
+    padding: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* New layout for Logo + Title */
+.dossier-title-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.event-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    
+    /* Stripping away all artificial borders, glows, and backgrounds */
+    border: none;
+    background: transparent;
+    filter: none;
+    box-shadow: none;
+}
+
+.dossier-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.dossier-date {
+    font-family: 'Inter', sans-serif;
+    color: #777;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.dossier-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 300px;
+}
+
+.result-box {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #fff;
+}
+
+.result-box.runner-up {
+    border-left-color: #555;
+    opacity: 0.8;
+}
+
+.result-label {
+    font-family: 'Orbitron', sans-serif;
+    color: #888;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+}
+
+.result-school {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Visual Intel: Asymmetrical Event Collage */
+.dossier-gallery {
+    display: grid;
+    /* This creates a 2-column layout: the left is twice as wide as the right */
+    grid-template-columns: 2fr 1fr; 
+    /* Two rows of 220px height */
+    grid-template-rows: 220px 220px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    overflow: hidden;
+}
+
+/* The massive image on the left spans both rows */
+.hero-img {
+    grid-row: span 2;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The top right image gets a bottom border */
+.top-right-img {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.6);
+    transition: all 0.5s ease;
+}
+
+.gallery-img-container:hover .gallery-img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.3rem 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Update the mobile media queries at the bottom of the file to handle the new grid */
+@media (max-width: 900px) {
+    .dossier-gallery { 
+        grid-template-columns: 1fr; /* Stacks all images in 1 column on tablets */
+        grid-template-rows: auto;
+    }
+    .hero-img { grid-row: span 1; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); height: 300px; }
+    .top-right-img { height: 250px; }
+    .bottom-right-img { height: 250px; }
+    
+    .stages-grid { grid-template-columns: 1fr; }
+    .stage-card { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .stage-card:last-child { border-bottom: none; }
+}
+
+/* Operational Mechanics: Stages Grid */
+.stages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.stage-card {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.stage-card:last-child {
+    border-right: none;
+}
+
+/* On hover: softly illuminates the background like an active terminal */
+.stage-card:hover {
+    background: rgba(255, 255, 255, 0.03); 
+}
+
+/* Adds an internal left-border highlight that fades in on hover */
+.stage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stage-card:hover::before {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.stage-info {
+    padding: 2.5rem 2rem;
+    flex-grow: 1;
+}
+
+.stage-name {
+    font-family: 'Inter', sans-serif;
+    color: #eee;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.stage-desc {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+    .dossier-gallery, .stages-grid { grid-template-columns: 1fr; }
+    .gallery-img-container, .stage-card { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .gallery-img-container:last-child, .stage-card:last-child { border-bottom: none; }
+}
+@media (max-width: 768px) {
+    .dossier-header { flex-direction: column; align-items: flex-start; }
+    .dossier-title-group { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .upcoming-title { font-size: 1.8rem; }
+}
+
+/* ==========================================
+   16b. HISTORICAL FEATURED EVENT
+   ========================================== */
+.historical-featured {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    background: rgba(5, 5, 5, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    align-items: center;
+}
+
+.historical-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The 2-Image Grid for Past Events */
+.historical-photos {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to stacked */
+    gap: 1rem;
+}
+
+/* Mobile Adjustments for Historical Block */
+@media (max-width: 900px) {
+    .historical-featured {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
+    }
+    
+    .historical-photos {
+        /* Side-by-side on mobile/tablet to save vertical space */
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media (max-width: 500px) {
+    .historical-photos {
+        grid-template-columns: 1fr; /* Stack on very small screens */
+    }
+}
+
+/* ==========================================
+   17. 20TH ANNIVERSARY HALLMARK (INTERACTIVE)
+   ========================================== */
+.milestone-container {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4.5rem;
+    padding: 3.5rem 0;
+    
+    /* Default: Dormant Greyscale */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(90deg, transparent 0%, rgba(20, 20, 20, 0.6) 50%, transparent 100%);
+    transition: all 0.6s ease;
+    cursor: default;
+}
+
+/* On Hover: Ignites the container borders and background */
+.milestone-container:hover {
+    border-top: 1px solid rgba(232, 211, 162, 0.4);
+    border-bottom: 1px solid rgba(232, 211, 162, 0.4);
+    background: linear-gradient(90deg, transparent 0%, rgba(30, 25, 15, 0.8) 50%, transparent 100%);
+}
+
+/* The Graphic Area */
+.milestone-graphic {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Default: Invisible glow */
+.milestone-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(232, 211, 162, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.milestone-container:hover .milestone-glow {
+    opacity: 1;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Default: White number */
+.milestone-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    letter-spacing: -2px;
+    z-index: 2;
+    transition: all 0.6s ease;
+}
+
+/* On Hover: Number turns glowing gold */
+.milestone-container:hover .milestone-number {
+    color: #e8d3a2;
+    text-shadow: 0 0 30px rgba(232, 211, 162, 0.7);
+}
+
+/* Default: White outer ring */
+.milestone-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #fff; 
+    border-radius: 50%;
+    animation: smooth-spin 10s linear infinite;
+    z-index: 1;
+    transition: border-top-color 0.6s ease;
+}
+
+/* On Hover: Outer ring turns gold */
+.milestone-container:hover .milestone-ring {
+    border-top: 1px solid #e8d3a2;
+}
+
+/* Default: White inner ring */
+.milestone-ring.inner-ring {
+    top: 15px;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    animation: smooth-spin-reverse 15s linear infinite;
+    transition: border-bottom-color 0.6s ease;
+}
+
+/* On Hover: Inner ring turns gold */
+.milestone-container:hover .milestone-ring.inner-ring {
+    border-bottom: 1px solid #c5a059;
+}
+
+@keyframes smooth-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes smooth-spin-reverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+
+/* The Text Area */
+.milestone-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+}
+
+/* Default: Grey tags and text */
+.milestone-tag {
+    font-family: 'Orbitron', sans-serif;
+    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.8rem;
+    transition: color 0.6s ease;
+}
+
+.highlight-gold {
+    color: #fff;
+    font-style: italic;
+    transition: color 0.6s ease;
+}
+
+/* On Hover: Text elements turn gold */
+.milestone-container:hover .milestone-tag,
+.milestone-container:hover .highlight-gold {
+    color: #e8d3a2;
+    text-shadow: 0 0 10px rgba(232, 211, 162, 0.3);
+}
+
+.milestone-heading {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.milestone-desc {
+    color: #999;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+    transition: color 0.6s ease;
+}
+
+.milestone-container:hover .milestone-desc {
+    color: #eee; /* Brightens the description text slightly on hover */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .milestone-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 1rem;
+        background: transparent;
+        border: none;
+    }
+    .milestone-heading { font-size: 1.6rem; letter-spacing: 2px; }
+    .milestone-graphic { width: 140px; height: 140px; }
+    .milestone-number { font-size: 4.5rem; }
+    
+    /* Remove hover dependencies for mobile since hover doesn't exist on touch */
+    .milestone-container:hover { border: none; background: transparent; }
+}
+
+/* ==========================================
+   THE ROADMAP: TRUE FRAMEWORK (BORDERLESS)
+   ========================================== */
+
+/* Main Container - Adjusted to clear the nav bar */
+.roadmap-section {
+    padding: 5rem 0 8rem 0; 
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 95%;
+    z-index: 10;
+}
+
+.roadmap-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+/* Reduced font size so it fits perfectly on one line */
+.roadmap-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2rem; 
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.roadmap-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+/* The Grid - Perfectly spaces the 5 items horizontally */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 50;
+}
+
+/* The Step - NO BOXES, NO BORDERS, NO BACKGROUNDS */
+.step {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Elevates slightly on hover, but no boxes appear */
+.step:hover {
+    transform: translateY(-5px);
+    z-index: 999;
+}
+
+/* The Connecting Horizontal Lines */
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 15px; /* Aligns vertically with the numbers */
+    left: calc(50% + 25px); /* Starts after the number */
+    width: calc(100% - 50px); /* Reaches just before the next number */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15); /* Sleek, faint connector line */
+    z-index: 0;
+}
+
+/* The Number - Plain floating text, no circle */
+.step-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #bbb;
+    margin-bottom: 2rem;
+    background: transparent;
+    border: none !important;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    display: block; 
+}
+
+/* Titles and Descriptions */
+.step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.step-desc {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    padding: 0 0.5rem; /* Keeps text from bleeding into neighbors */
+}
+
+/* THE TOOLTIP - Solid black, highly elevated */
+.step-detail {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    background-color: #050505 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 1.5rem;
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000 !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
+    margin-top: 15px;
+}
+
+.step:hover .step-detail {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile handling */
+@media (max-width: 900px) {
+    .roadmap-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+    .step:not(:last-child)::after { display: none; } /* Hide horizontal lines on mobile */
+    .roadmap-title { font-size: 1.6rem; }
+}
+@media (max-width: 500px) {
+    .roadmap-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================
+   FIELD TEST / PRACTICE QUESTION HEADER
+   ========================================== */
+.field-test-header {
+    text-align: center;
+    margin-top: 5rem; /* Creates ample breathing room below the roadmap */
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* The glowing vertical line connecting the roadmap to the test */
+.test-divider {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+    margin-bottom: 1.5rem;
+}
+
+.test-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.test-desc {
+    font-family: 'Inter', sans-serif;
+    color: #888;
+    font-size: 0.95rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Optional: If your existing paragraph doesn't have a container, 
+   this keeps it nicely centered and highly readable */
+.practice-paragraph {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #bbb;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   DYNAMIC NAV BAR UPGRADES
+   ========================================== */
+
+/* 1. Environmental Reaction: Frosted Glass */
+.global-nav, nav { /* Covers whichever class you used for the bar */
+    background: rgba(10, 10, 10, 0.6) !important; /* Semi-transparent */
+    backdrop-filter: blur(12px); /* Blurs the particles floating behind it */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Ensure it stays locked to the top */
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 99999; 
+}
+
+/* 2. Cursor Reaction: Glowing Scanner Underline & Enlarge */
+.nav-links a {
+    position: relative;
+    color: #aaa;
+    text-decoration: none;
+    
+    /* CRITICAL: Allows the text to physically scale */
+    display: inline-block; 
+    
+    /* Smoothly transitions both the color and the size */
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+    padding-bottom: 5px; 
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    
+    /* Scales the text up by exactly 10% */
+    transform: scale(1.1); 
+}
+
+/* The invisible line waiting to strike */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 3. Scroll Reaction: Shrink State (Forced Override) */
+.global-nav.scrolled,
+nav.scrolled {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    background: rgba(5, 5, 5, 0.95) !important; /* Pitch black glass */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9) !important; /* Heavy shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ==========================================
+   NAV BRAND: "SYSTEM WAKE-UP" HOVER
+   ========================================== */
+
+/* The Container */
+.nav-brand {
+    display: inline-flex; 
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+/* The Brain Image */
+.nav-brand img {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+/* The Text */
+.nav-brand h1, 
+.nav-brand span, 
+.nav-brand p { 
+    transition: all 0.3s ease;
+}
+
+/* --- THE HOVER TRIGGERS --- */
+
+/* 1. The whole block pulls forward slightly */
+.nav-brand:hover {
+    transform: scale(1.02); 
+}
+
+/* 2. The brain tilts slightly and emits a glowing pulse */
+.nav-brand:hover img {
+    transform: scale(1.1) rotate(5deg); 
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7)); 
+}
+
+/* 3. The text brightens and casts a terminal glow */
+.nav-brand:hover h1, 
+.nav-brand:hover span, 
+.nav-brand:hover p {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================
+   NEURAL GLITCH CALL-TO-ACTION
+   ========================================== */
+
+/* 1. Base Button Styling (Pure Text, No Boxes) */
+.join-btn {
+    position: relative;
+    display: inline-block;
+    color: #fff !important; /* Keeps it bright white to stand out as the primary action */
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent !important; /* Forces the box away */
+    border: none !important;
+}
+
+/* 2. The Hover Trigger */
+.join-btn:hover {
+    /* Fires the 0.3-second text glitch without changing the background */
+    animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+/* 3. The Glitch Engine (Splits the RGB channels) */
+@keyframes glitch-anim {
+    0% { 
+        transform: translate(0); 
+        text-shadow: 0 0 0 transparent; 
+    }
+    20% { 
+        transform: translate(-2px, 2px); 
+        text-shadow: 2px 0 0 #0ff, -2px 0 0 #f00; /* Cyan & Red split */
+    }
+    40% { 
+        transform: translate(-2px, -2px); 
+        text-shadow: 2px 0 0 #0ff, -2px 0 0 #f00; 
+    }
+    60% { 
+        transform: translate(2px, 2px); 
+        text-shadow: -2px 0 0 #0ff, 2px 0 0 #f00; 
+    }
+    80% { 
+        transform: translate(2px, -2px); 
+        text-shadow: -2px 0 0 #0ff, 2px 0 0 #f00; 
+    }
+    100% { 
+        transform: translate(0); 
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Settles into a white glow */
+    }
+}

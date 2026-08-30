@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us | Grey Matters Quizzing Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Precision Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- The Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.jpeg" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header reveal">
+        <h1 class="page-title">JOIN US</h1>
+        <p class="page-subtitle">The pathway to entering Grey Matters.</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="section reveal" style="padding-top: 0;">
+        
+        <!-- Philosophy of Selection -->
+        <div class="roster-intro reveal">
+            <h3 class="intro-heading">[ SELECTION PHILOSOPHY ]</h3>
+            <p class="intro-text">
+                Grey Matters does not select for rote memorization. We seek lateral thinkers, analytical minds, and individuals with an inherent curiosity about how disparate fields—from geopolitics and economics to literature and the sciences—intersect. The ideal candidate demonstrates the ability to deconstruct complex queries, connect hidden clues, and thrive within a highly competitive intellectual environment.
+            </p>
+        </div>
+
+        <!-- The Scope of Inquiry -->
+        <h2 class="section-title reveal" style="font-size: 1.5rem; margin-top: 5rem; margin-bottom: 1.5rem;">THE SCOPE OF INQUIRY</h2>
+        <div class="roster-intro reveal" style="margin-bottom: 5rem;">
+            <p class="intro-text">
+                The Intra-School Quiz operates as an omnidisciplinary General Knowledge assessment. There is no predefined syllabus, nor are there restricted domains. While specialized subjects may naturally surface, the quiz is fundamentally topic-less. It is engineered to test situational awareness, lateral connections, and a candidate's broad understanding of the world. Anything and everything is within the scope of inquiry.
+            </p>
+        </div>
+
+        <!-- Tournament Architecture -->
+        <h2 class="section-title reveal" style="font-size: 1.5rem; margin-bottom: 3rem;">TOURNAMENT ARCHITECTURE</h2>
+        <div class="process-grid reveal" style="margin-bottom: 6rem;">
+            
+            <!-- Phase 1 -->
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <h3 class="step-title">THE QUALIFIERS</h3>
+                <p class="step-desc">The primary baseline evaluation is a comprehensive written qualifier. In the event of an exceptionally high volume of registrations, an initial digital preliminary round may be deployed to systematically shortlist candidates.</p>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <h3 class="step-title">THE SEMI-FINALS</h3>
+                <p class="step-desc">A contingent elimination phase. Depending on the density and performance of the participant pool, qualifying candidates will face intermediate situational and deductive rounds to bridge the gap to the finals.</p>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <h3 class="step-title">THE STAGE FINALS</h3>
+                <p class="step-desc">The definitive live evaluation. Top performers advance to the stage finals, where speed, pressure management, and advanced lateral thinking are tested in real-time to determine the final induction cohort.</p>
+            </div>
+        </div>
+
+        <!-- Eligibility & FAQ -->
+        <h2 class="section-title reveal" style="font-size: 1.5rem; margin-bottom: 3rem;">ELIGIBILITY & INQUIRIES</h2>
+        <div class="faq-container reveal">
+            
+            <details class="faq-item">
+                <summary class="faq-question">Who is eligible to participate in the Intra-School Quiz?</summary>
+                <div class="faq-answer">Participation is entirely open to all students from Classes 6 through 12. We welcome anyone with a profound passion for knowledge, critical thought, and the art of questioning.</div>
+            </details>
+            
+            <details class="faq-item">
+                <summary class="faq-question">Is prior competitive quizzing experience required?</summary>
+                <div class="faq-answer">No. While experience is an asset, the Intra is fundamentally designed to identify raw analytical potential, curiosity, and situational deduction. Many of our strongest inductees began with no formal quizzing background.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">How should I prepare if there is no defined syllabus?</summary>
+                <div class="faq-answer">While rote memorization is ineffective for this format, candidates are heavily encouraged to read extensively, follow global current events, and cultivate a habit of questioning how different domains interact. Reviewing the texts in our 'Resources' directory may also provide a strong foundational mindset.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">Do I need to register as part of a team?</summary>
+                <div class="faq-answer">No. Because the primary objective of the Intra-School Quiz is formal induction into the society, all candidates must register and compete on an individual basis. This allows us to accurately assess personal analytical capabilities.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">How is the tournament scored?</summary>
+                <div class="faq-answer">Scoring mechanics are highly dynamic. They vary significantly depending on the format of the specific quiz round and the nature of the questions presented. Full mechanical briefings are provided to participants prior to the commencement of each stage.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">What distinguishes a Member from a Trainee upon induction?</summary>
+                <div class="faq-answer">Inductees are placed based on their tournament performance and demonstrated readiness. Members immediately join the active competitive roster to represent the institution, whereas Trainees enter a collaborative mentorship phase to refine their deductive skills before competing in the external circuit.</div>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- 2026 Call to Action -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 8rem;">
+        <div class="cta-terminal">
+            <h2 class="cta-title">INTRA 2026 COMING SOON</h2>
+            <p class="cta-status">REGISTRATIONS OPENING SHORTLY</p>
+            <div class="cta-pulse-bar"></div>
+        </div>
+    </section>
+
+    <!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

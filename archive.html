@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | Grey Matters Quizzing Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Precision Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- The Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.jpeg" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header reveal">
+        <h1 class="page-title">ARCHIVE</h1>
+        <p class="page-subtitle">A curated monthly ledger of exceptional reading across all disciplines.</p>
+    </header>
+
+    <!-- Curation Mandate -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 2rem;">
+        <div class="roster-intro">
+            <h3 class="intro-heading">[ CURATION PHILOSOPHY ]</h3>
+            <p class="intro-text">
+                To master the art of lateral quizzing, one must read widely and indiscriminately. Each month, the Society curates two of the most fascinating essays, articles, and research papers available on the internet. From evolutionary game theory and linguistics to neurology and art history, this archive directs our cohort to the ideas shaping human knowledge. All links route directly to the original authors and publications.
+            </p>
+        </div>
+    </section>
+
+    <!-- AUGUST 2026: Swipeable Featured Banner -->
+    <section class="section reveal" style="padding-top: 0;">
+        <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 1.5rem; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto;">[ AUGUST 2026: FEATURED CURATIONS ]</h2>
+        
+        <div class="slider-wrapper">
+            
+            <!-- Accessible Navigation Arrows -->
+            <button class="slider-arrow prev-arrow" aria-label="Previous Dispatch">&#10094;</button>
+            <button class="slider-arrow next-arrow" aria-label="Next Dispatch">&#10095;</button>
+
+            <div class="slider-container" id="archive-slider">
+                
+                <!-- Slide 1 -->
+                <div class="featured-article slide">
+                    <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                        <span class="article-tag">[ COGNITIVE SCIENCE ]</span>
+                        <span class="article-date">VIA AEON</span>
+                    </div>
+                    <h3 class="featured-title">Your Brain Does Not Process Information</h3>
+                    <p class="featured-excerpt">A paradigm-shifting essay dismantling the "information processing" metaphor of the human brain. The author argues that humans do not store, retrieve, or process data like computers do, offering a profound look at how memory and biological perception actually function.</p>
+                    <div class="article-footer">
+                        <div class="article-author">AUTHOR: ROBERT EPSTEIN</div>
+                        <a href="https://aeon.co/essays/your-brain-does-not-process-information-and-it-is-not-a-computer" target="_blank" class="read-more">READ ORIGINAL ARTICLE ↗</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="featured-article slide">
+                    <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                        <span class="article-tag">[ GEOPOLITICS & SUPPLY CHAIN ]</span>
+                        <span class="article-date">VIA WIRED</span>
+                    </div>
+                    <h3 class="featured-title">The Deadly Global War for Sand</h3>
+                    <p class="featured-excerpt">Sand is the most consumed natural resource on Earth after water, serving as the hidden foundation for modern concrete, glass, and silicon microchips. This investigation uncovers the terrifying reality of "peak sand" and the violent, multi-billion-dollar black markets currently fighting over it.</p>
+                    <div class="article-footer">
+                        <div class="article-author">AUTHOR: VINCE BEISER</div>
+                        <a href="https://www.wired.com/2015/03/illegal-sand-mining/" target="_blank" class="read-more">READ ORIGINAL ARTICLE ↗</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Interactive Dots for Swipe Indication -->
+            <div class="slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
+        </div>
+            
+    </section>
+
+    <!-- PRECEDING MONTHS: Dispatch Log Grid (May to July) -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 6rem;">
+        <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 2rem; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto;">[ PREVIOUS DISPATCHES ]</h2>
+        
+        <div class="archive-grid">
+            
+            <!-- JULY 2026: Article 1 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ GAME THEORY & PHYSICS ]</span>
+                    <span class="article-date">JULY 2026</span>
+                </div>
+                <h4 class="card-title">The Evolutionary Argument Against Reality</h4>
+                <p class="card-excerpt">Cognitive scientist Donald Hoffman uses evolutionary game theory to prove a mathematical theorem: if a species evolves to see reality exactly as it actually is, it will go extinct.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: AMANDA GEFTER | VIA QUANTA MAG</p>
+                <a href="https://www.quantamagazine.org/the-evolutionary-argument-against-reality-20160421/" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+            <!-- JULY 2026: Article 2 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ GEOPOLITICS & ART ]</span>
+                    <span class="article-date">JULY 2026</span>
+                </div>
+                <h4 class="card-title">Was Modern Art a Weapon of the CIA?</h4>
+                <p class="card-excerpt">An investigation into how the CIA secretly funded the Abstract Expressionist movement during the Cold War to prove American cultural superiority over Soviet realism.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: ALASTAIR SOOKE | VIA BBC CULTURE</p>
+                <a href="https://www.bbc.com/culture/article/20161004-was-modern-art-a-weapon-of-the-cia" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+            <!-- JUNE 2026: Article 1 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ LINGUISTICS ]</span>
+                    <span class="article-date">JUNE 2026</span>
+                </div>
+                <h4 class="card-title">Does Your Language Shape How You Think?</h4>
+                <p class="card-excerpt">A breakdown of how speaking different languages physically alters how humans perceive color, navigate space, and assign blame in accidents.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: GUY DEUTSCHER | VIA NYT</p>
+                <a href="https://www.nytimes.com/2010/08/29/magazine/29language-t.html" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+            <!-- JUNE 2026: Article 2 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ BIOLOGY ]</span>
+                    <span class="article-date">JUNE 2026</span>
+                </div>
+                <h4 class="card-title">The Intelligent Plant</h4>
+                <p class="card-excerpt">A dive into plant neurobiology, asking if flora possess consciousness, memory, and the ability to communicate warnings through underground fungal networks.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: MICHAEL POLLAN | VIA THE NEW YORKER</p>
+                <a href="https://www.newyorker.com/magazine/2013/12/23/the-intelligent-plant" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+            <!-- MAY 2026: Article 1 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ HISTORY & TECH ]</span>
+                    <span class="article-date">MAY 2026</span>
+                </div>
+                <h4 class="card-title">Decoding the Antikythera Mechanism</h4>
+                <p class="card-excerpt">The story of a corroded bronze artifact found in a shipwreck that turned out to be an analog computer built by ancient Greeks 2,000 years before its time.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: JO MARCHANT | VIA SMITHSONIAN</p>
+                <a href="https://www.smithsonianmag.com/history/decoding-antikythera-mechanism-first-computer-180953979/" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+            <!-- MAY 2026: Article 2 -->
+            <div class="archive-card" style="padding: 2.5rem 2rem; display: flex; flex-direction: column;">
+                <div class="article-meta" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; height: auto; padding-bottom: 15px;">
+                    <span class="article-tag">[ MATHEMATICS ]</span>
+                    <span class="article-date">MAY 2026</span>
+                </div>
+                <h4 class="card-title">The Math That Takes Newton Into the Quantum World</h4>
+                <p class="card-excerpt">How a centuries-old equation used to calculate the orbits of planets is quietly being repurposed to solve impossible quantum mechanics equations.</p>
+                <p class="article-author" style="margin-bottom: 1.5rem; font-size: 0.75rem;">AUTHOR: JOHN BAEZ | VIA NAUTILUS</p>
+                <a href="https://nautil.us/the-math-that-takes-newton-into-the-quantum-world-237339" target="_blank" class="read-more">READ ORIGINAL ↗</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for the Background -->
+    <script src="script.js"></script>
+
+    <!-- Script for the Swipeable Carousel & Arrows -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('archive-slider');
+            const dots = document.querySelectorAll('.dot');
+            const nextBtn = document.querySelector('.next-arrow');
+            const prevBtn = document.querySelector('.prev-arrow');
+            
+            if(!container) return;
+
+            // Arrow Click Mechanics
+            nextBtn.addEventListener('click', () => {
+                container.scrollBy({ left: container.clientWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });
+            });
+
+            // Updates the glowing dots when you swipe or click arrows
+            container.addEventListener('scroll', () => {
+                let index = Math.round(container.scrollLeft / container.clientWidth);
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            });
+
+            // Allows you to click the dots directly
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    container.scrollTo({
+                        left: index * container.clientWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

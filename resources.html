@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Grey Matters Quizzing Society</title>
+    
+    <!-- Google Fonts: Orbitron for tech/formal headings, Inter for readable body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your existing stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Precision Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- The Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.jpeg" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header reveal">
+        <h1 class="page-title">RESOURCE DIRECTORY</h1>
+        <p class="page-subtitle">Curated literature and verified data registries for structural research.</p>
+    </header>
+<!-- Part 1: Core Curriculum (Foundational Literature) -->
+    <section id="curriculum" class="section reveal">
+        <h2 class="section-title">CORE CURRICULUM</h2>
+        <p class="section-subtitle">Foundational texts establishing an intellectual baseline.</p>
+
+        <div class="curriculum-grid">
+            
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">BEHAVIORAL ECONOMICS</div>
+                <a href="https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow" target="_blank" class="text-title">THINKING, FAST AND SLOW ↗</a>
+                <div class="text-author">Daniel Kahneman</div>
+                <div class="text-desc">Deconstructs the dichotomy between intuitive, emotional thought (System 1) and deliberate, logical processing (System 2), exposing cognitive biases.</div>
+            </div>
+            
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">APPLIED MICROECONOMICS</div>
+                <a href="https://freakonomics.com/books/" target="_blank" class="text-title">FREAKONOMICS ↗</a>
+                <div class="text-author">Steven D. Levitt & Stephen J. Dubner</div>
+                <div class="text-desc">Applies economic theory to unconventional, everyday subjects, proving that human behavior is fundamentally driven by a complex, often hidden web of incentives.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">MACRO-HISTORY</div>
+                <a href="https://www.goodreads.com/book/show/23692271-sapiens" target="_blank" class="text-title">SAPIENS ↗</a>
+                <div class="text-author">Yuval Noah Harari</div>
+                <div class="text-desc">Examines the cognitive revolutions and shared cultural myths—such as currency and corporations—that allowed Homo sapiens to dominate the globe.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">INSTITUTIONAL GEOPOLITICS</div>
+                <a href="https://www.goodreads.com/book/show/12158480-why-nations-fail" target="_blank" class="text-title">WHY NATIONS FAIL ↗</a>
+                <div class="text-author">Daron Acemoglu & James Robinson</div>
+                <div class="text-desc">Provides a definitive framework proving that political and economic institutional design—not geography or culture—dictates the wealth and power of societies.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">THEORETICAL PHYSICS</div>
+                <a href="https://www.goodreads.com/book/show/3869.A_Brief_History_of_Time" target="_blank" class="text-title">A BRIEF HISTORY OF TIME ↗</a>
+                <div class="text-author">Stephen Hawking</div>
+                <div class="text-desc">A foundational overview of cosmology, exploring the architecture of the universe from the Big Bang and black holes to the search for a unified theory of everything.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">COGNITIVE SCIENCE & LOGIC</div>
+                <a href="https://www.goodreads.com/book/show/24113.G_del_Escher_Bach" target="_blank" class="text-title">GÖDEL, ESCHER, BACH ↗</a>
+                <div class="text-author">Douglas Hofstadter</div>
+                <div class="text-desc">A Pulitzer-winning exploration of formal systems, artificial intelligence, and how meaning emerges from meaningless symbols through self-referential loops.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">SYSTEMS & INFORMATION</div>
+                <a href="https://www.goodreads.com/book/show/8701960-the-information" target="_blank" class="text-title">THE INFORMATION ↗</a>
+                <div class="text-author">James Gleick</div>
+                <div class="text-desc">Traces the evolution of human communication from African talking drums to quantum computing, illustrating how data engineered modern civilization.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">EVOLUTIONARY BIOLOGY</div>
+                <a href="https://www.goodreads.com/book/show/61535.The_Selfish_Gene" target="_blank" class="text-title">THE SELFISH GENE ↗</a>
+                <div class="text-author">Richard Dawkins</div>
+                <div class="text-desc">Shifts the perspective of evolution from the organism to the gene, introducing the concept of the "meme" to explain how cultural ideas replicate and mutate.</div>
+            </div>
+
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">SPATIAL POLITICS</div>
+                <a href="https://www.goodreads.com/book/show/25135194-prisoners-of-geography" target="_blank" class="text-title">PRISONERS OF GEOGRAPHY ↗</a>
+                <div class="text-author">Tim Marshall</div>
+                <div class="text-desc">Analyzes how the physical environment—mountains, rivers, and oceans—irrevocably constrains the foreign policy and economic leverage of world powers.</div>
+            </div>
+            
+            <div class="curriculum-item reveal">
+                <div class="meta-tag">VISUAL LITERACY & ART</div>
+                <a href="https://www.goodreads.com/book/show/2784.Ways_of_Seeing" target="_blank" class="text-title">WAYS OF SEEING ↗</a>
+                <div class="text-author">John Berger</div>
+                <div class="text-desc">Deconstructs the traditional aesthetics of Western art, analyzing how socio-economic structures, gender, and power dictate visual representation and perception.</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Part 2: Primary Databases (External Registries) -->
+    <section id="databases" class="section reveal">
+        <h2 class="section-title">PRIMARY DATABASES</h2>
+        <p class="section-subtitle">Verified external registries utilized for query formulation and cross-referencing.</p>
+
+        <div class="database-list">
+            
+            <a href="https://oec.world/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ TRADE & COMMERCE ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">Observatory of Economic Complexity (OEC)</h3>
+                    <p class="db-purpose">Visualizes international trade data, mapping global export networks and economic growth dynamics.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://ourworldindata.org/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ GLOBAL METRICS ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">Our World in Data</h3>
+                    <p class="db-purpose">Aggregates macro-statistical research on poverty, disease, hunger, climate change, and global inequality.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://plato.stanford.edu/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ PHILOSOPHY ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">Stanford Encyclopedia of Philosophy</h3>
+                    <p class="db-purpose">The definitive, peer-reviewed academic reference for philosophical concepts, logic frameworks, and historical ethicists.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://arxiv.org/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ COMPUTATIONAL SCIENCES ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">arXiv Open Archive</h3>
+                    <p class="db-purpose">Cornell University's primary repository for pre-publication research papers in machine learning, mathematics, and quantum physics.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://www.cia.gov/the-world-factbook/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ GEOPOLITICS ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">CIA World Factbook</h3>
+                    <p class="db-purpose">Provides intelligence-level baseline data on the history, people, government, economy, and transnational issues of 267 global entities.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://artsandculture.google.com/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ ART & ARCHIVES ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">Google Arts & Culture</h3>
+                    <p class="db-purpose">High-resolution repositories of global museum archives, spanning classical architecture, historical artifacts, and fine art.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://www.gutenberg.org/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ CLASSICAL LITERATURE ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">Project Gutenberg</h3>
+                    <p class="db-purpose">A sweeping digital library of over 70,000 free foundational texts, literary classics, and historical manuscripts in the public domain.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+            <a href="https://www.jstor.org/" target="_blank" class="database-row reveal">
+                <div class="db-domain">[ ACADEMIA ]</div>
+                <div class="db-info">
+                    <h3 class="db-name">JSTOR Digital Library</h3>
+                    <p class="db-purpose">A highly indexed archive of academic journals, primary sources, and monographs utilized for deep-dive literature reviews.</p>
+                </div>
+                <div class="db-link-icon">↗</div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

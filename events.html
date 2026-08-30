@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Grey Matters Quizzing Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Precision Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- The Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.jpeg" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header reveal">
+        <h1 class="page-title">EVENTS ORGANISED</h1>
+        <p class="page-subtitle">The competitive frameworks and tournaments hosted by the society.</p>
+    </header>
+
+    <!-- ACTIVE DEPLOYMENT: Upcoming Intra -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 4rem;">
+        <div class="upcoming-terminal">
+            <div class="terminal-header">
+                <span class="status-dot pulsing"></span>
+                <span class="status-text">STATUS: AWAITING RELEASE</span>
+            </div>
+            <h2 class="upcoming-title">GREY MATTERS ANNUAL INTRA-SCHOOL QUIZ 2026</h2>
+            <p class="upcoming-desc">The primary induction tournament for the 2026 cohort. An omnidisciplinary assessment designed to identify raw analytical potential and situational deduction.</p>
+            <div class="terminal-footer">
+                <span class="footer-alert">[ REGISTRATIONS OPENING SOON ]</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP DEBRIEF: Rethink. Rewire. -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 6rem;">
+        <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 2rem; text-align: left; max-width: 1100px; margin-left: auto; margin-right: auto;">[ 2026 INTER-SCHOOL INVITATIONAL ]</h2>
+        
+        <div class="dossier-wrapper">
+            
+            <!-- Dossier Header & Results -->
+            <div class="dossier-header">
+                <!-- Logo and Title Grouped Together -->
+                <div class="dossier-title-group">
+                    <!-- Replace 'rethink-logo.png' with your actual logo file -->
+                    <img src="images/rethink-logo.png" alt="Rethink Rewire Logo" class="event-logo">
+                    <div class="dossier-title-col">
+                        <h2 class="dossier-title">RETHINK. REWIRE.</h2>
+                        <p class="dossier-date">ORGANISED: 22 MAY 2026</p>
+                    </div>
+                </div>
+                
+                <div class="dossier-results">
+                    <div class="result-box winner">
+                        <span class="result-label">WINNER</span>
+                        <span class="result-school">DPS GREATER NOIDA</span>
+                    </div>
+                    <div class="result-box runner-up">
+                        <span class="result-label">RUNNER-UP</span>
+                        <span class="result-school">DPS MATHURA ROAD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Intel: Asymmetrical Event Collage -->
+            <div class="dossier-gallery">
+                
+                <!-- Main Feature Image (Left Side, Large) -->
+                <div class="gallery-img-container hero-img">
+                    <img src="images/event-action1.jpeg" alt="Event Action" class="gallery-img">
+                    <div class="img-overlay">SEMI FINALS</div>
+                </div>
+
+                <!-- Secondary Image (Right Side, Top) -->
+                <div class="gallery-img-container top-right-img">
+                    <img src="images/event-team.jpeg" alt="The Organizing Team" class="gallery-img">
+                    <div class="img-overlay">THE CORE TEAM</div>
+                </div>
+
+                <!-- Third Image (Right Side, Bottom) -->
+                <div class="gallery-img-container bottom-right-img">
+                    <img src="images/event-action2.jpeg" alt="Event Action" class="gallery-img">
+                    <div class="img-overlay">ATMOSPHERE</div>
+                </div>
+
+            </div>
+
+            <!-- Operational Mechanics: The 3 Stages Grid (Text Only) -->
+            <div class="stages-grid">
+                
+                <!-- Stage 1 -->
+                <div class="stage-card">
+                    <div class="stage-info">
+                        <h3 class="stage-name">PHASE I: NEURAL WARFARE</h3>
+                        <p class="stage-desc">The digital vanguard. Operating as the online preliminary round, this stage acted as the initial filtration barrier, testing raw speed and foundational lateral thinking across a massive participant pool.</p>
+                    </div>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="stage-card">
+                    <div class="stage-info">
+                        <h3 class="stage-name">PHASE II: FRACTURED INTEL</h3>
+                        <p class="stage-desc">The offline semi-finals. 16 qualifying teams were divided into two highly volatile brackets of 8. Teams were required to piece together fragmented clues under live stage pressure to secure a finals berth.</p>
+                    </div>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="stage-card">
+                    <div class="stage-info">
+                        <h3 class="stage-name">PHASE III: SYSTEM OVERRIDE</h3>
+                        <p class="stage-desc">The grand finale. The definitive top 6 teams faced off in a brutal, uncompromising final stage designed to push deductive reasoning and risk management to their absolute limits.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORICAL ARCHIVE -->
+    <section class="section reveal" style="padding-top: 0; padding-bottom: 6rem;">
+        <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 2rem; text-align: left; max-width: 1100px; margin-left: auto; margin-right: auto;"/h2>
+        
+        <div style="max-width: 1100px; margin: 0 auto;">
+            
+            <!-- FEATURED PAST EVENT: 2025 Senior Intra -->
+            <div class="historical-featured">
+                
+                <!-- The Write-Up -->
+                <div class="historical-text">
+                    <div class="article-meta" style="margin-bottom: 1rem;">
+                        <span class="article-tag">[ SENIOR INDUCTION ]</span>
+                        <span class="article-date">CONDUCTED: 2 DECEMBER 2025</span>
+                    </div>
+                    <h3 class="stage-name" style="font-size: 1.5rem; margin-bottom: 1rem;">GREY MATTERS SENIOR INTRA-SCHOOL QUIZ 2025</h3>
+                    <p class="stage-desc" style="margin-bottom: 1rem;">
+                        The definitive proving ground for the society's current active roster. Stripped of a predictable syllabus, the 2025 Senior Intra was strictly engineered to assess raw cognitive endurance and lateral deduction across a rigorous three-stage architecture.
+                    </p>
+                    <p class="stage-desc">
+                        The operation initiated with a high-speed <strong>online preliminary round</strong> to establish a cognitive baseline, effectively filtering the massive participant pool. Qualifying candidates then advanced to a comprehensive <strong>written semi-final</strong>, demanding deep structural deduction. Finally, the surviving quizzers clashed in the live <strong>stage finals</strong>, where pressure management and rapid recall ultimately forged our new senior inductees.
+                    </p>
+                </div>
+
+                <!-- The 2-Photo Intel Gallery -->
+                <div class="historical-photos">
+                    <div class="gallery-img-container" style="border: 1px solid rgba(255,255,255,0.1);">
+                        <!-- Replace with your actual first photo -->
+                        <img src="images/intra25-1.jpeg" alt="2025 Senior Intra Action" class="gallery-img">
+                        <div class="img-overlay" style="font-size: 0.65rem;">SEMI FINALS (11TH)</div>
+                    </div>
+                    <div class="gallery-img-container" style="border: 1px solid rgba(255,255,255,0.1);">
+                        <!-- Replace with your actual second photo -->
+                        <img src="images/intra25-2.jpeg" alt="2025 Senior Intra Participants" class="gallery-img">
+                        <div class="img-overlay" style="font-size: 0.65rem;">STAGE FINALS (9TH)</div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

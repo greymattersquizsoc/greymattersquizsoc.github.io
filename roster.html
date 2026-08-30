@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roster | Grey Matters Quizzing Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Precision Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- The Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.jpeg" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header reveal">
+        <h1 class="page-title">SOCIETY ROSTER</h1>
+        <p class="page-subtitle">A decentralized intellectual collective driven by consensus and shared inquiry.</p>
+    </header>
+
+    <!-- Roster Overview -->
+    <section class="section reveal" style="padding-top: 0;">
+        
+        <!-- Institutional Framework -->
+        <div class="roster-intro reveal">
+            <h3 class="intro-heading">[ INSTITUTIONAL FRAMEWORK ]</h3>
+            <p class="intro-text">
+                Grey Matters is founded upon a culture of collaborative inquiry and intellectual egalitarianism. Structural designations within the society exist to curate competitive excellence, design academic frameworks, and provide structured mentorship. We operate as a unified collective where ideas are evaluated strictly on their merit, and discourse flows freely across all cohorts. The strength of the institution relies on this shared pursuit of knowledge, ensuring every member contributes to the collective intelligence of the society.
+            </p>
+        </div>
+
+        <!-- The Ranks Grid -->
+        <div class="roster-grid">
+            
+            <!-- Rank 01: President -->
+            <div class="rank-card reveal">
+                <div class="rank-header">
+                    <span class="rank-level">[ EXECUTIVE ]</span>
+                    <h2 class="rank-title">PRESIDENT</h2>
+                </div>
+                <div class="rank-body">
+                    <p>The primary steward of the society's academic direction. The President fosters a culture of rigorous inquiry, coordinates the society’s delegations for external quizzing circuits, and ensures that all internal initiatives align with a shared standard of competitive excellence.</p>
+                </div>
+            </div>
+
+            <!-- Rank 02: Vice President -->
+            <div class="rank-card reveal">
+                <div class="rank-header">
+                    <span class="rank-level">[ EXECUTIVE ]</span>
+                    <h2 class="rank-title">VICE PRESIDENT</h2>
+                </div>
+                <div class="rank-body">
+                    <p>The principal architect of the society's internal frameworks and event mechanics. Working in tandem with the broader cohort, the Vice President structures comprehensive training modules and designs innovative competition formats to continuously challenge and elevate the team's lateral thinking.</p>
+                </div>
+            </div>
+
+            <!-- Rank 03: Core Members -->
+            <div class="rank-card reveal">
+                <div class="rank-header">
+                    <span class="rank-level">[ SENIOR COHORT ]</span>
+                    <h2 class="rank-title">CORE MEMBERS</h2>
+                </div>
+                <div class="rank-body">
+                    <p>The society's senior quizzing cohort and domain specialists. Core Members take an active role in shaping the intellectual landscape of the club by curating high-quality question banks, leading school teams in high stakes competitions, and providing dedicated mentorship to newer members.</p>
+                </div>
+            </div>
+
+            <!-- Rank 04: Members -->
+            <div class="rank-card reveal">
+                <div class="rank-header">
+                    <span class="rank-level">[ GENERAL COHORT ]</span>
+                    <h2 class="rank-title">MEMBERS</h2>
+                </div>
+                <div class="rank-body">
+                    <p>The established competitive foundation of the society. Members actively represent the institution across inter-school quizzing circuits, engage in peer-to-peer knowledge sharing that keep the society's collective knowledge sharp and adaptable.</p>
+                </div>
+            </div>
+
+            <!-- Rank 05: Trainees -->
+            <div class="rank-card reveal">
+                <div class="rank-header">
+                    <span class="rank-level">[ INDUCTEES ]</span>
+                    <h2 class="rank-title">TRAINEES</h2>
+                </div>
+                <div class="rank-body">
+                    <p>The society's incoming generation of quizzers. Trainees are immersed in a collaborative learning environment where they develop foundational research skills, practice decoding complex queries, and work closely with senior members to prepare for active tournament participation.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

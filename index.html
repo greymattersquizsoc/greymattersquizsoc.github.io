@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey Matters | Quizzing Society</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Precision Cursor Elements MUST be here -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- 2. The Interactive Particle Background MUST be here -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="images/anniversary-brain-transparent.png" alt="GM Logo" class="nav-logo">
+            Grey Matters
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join.html" class="join-btn">Join Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <img src="images/anniversary-brain-transparent.png" alt="Grey Matters 20th Anniversary Brain Logo" class="hero-logo">
+            <h1 class="glow-text">WE QUIZ.<br>WE CONQUER.</h1>
+            <p>Delhi Public School Vasant Kunj's Premier Quizzing Society.</p>
+        </div>
+    </header>
+
+<!-- 20th Anniversary Commemorative Hallmark -->
+    <section class="section reveal" style="padding-top: 4rem; padding-bottom: 5rem;">
+        <div class="milestone-container">
+            
+            <!-- The Visual Graphic (Spinning Rings + Number) -->
+            <div class="milestone-graphic">
+                <div class="milestone-glow"></div>
+                <div class="milestone-ring"></div>
+                <div class="milestone-ring inner-ring"></div>
+                <span class="milestone-number">20</span>
+            </div>
+
+            <!-- The Celebratory Dedication -->
+            <div class="milestone-text">
+                <span class="milestone-tag">EST. 2006 &mdash; A MILESTONE CELEBRATION</span>
+                <h2 class="milestone-heading">TWO DECADES OF <span class="highlight-gold">BRILLIANCE</span></h2>
+                <p class="milestone-desc">
+                    For twenty years, Grey Matters has stood as the pinnacle of competitive intellect. Today, we celebrate a legacy forged by every brilliant mind that has dared to think, ask, and conquer. Here is to the past, the present, and the future of the society.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+<!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title reveal">ABOUT US</h2>
+        <div class="about-content reveal">
+            <p>Established in 2006, Grey Matters stands as one of Delhi's most ambitious and prestigious quizzing societies.</p>
+            
+            <p>At our core, we operate on a definitive philosophy: <strong>true quizzing is the relentless pursuit of thought, not merely the memorization of facts.</strong> We believe that <em>how</em> a person thinks will always triumph over what they simply know. This principle dictates everything we do—from meticulously designing our own complex quiz frameworks to conquering competitive circuits.</p>
+            
+            <br>
+            
+            <h3 style="color: #fff; font-family: 'Orbitron', sans-serif; margin-bottom: 0.5rem;">THE PROVING GROUND</h3>
+            <p>We actively hunt for sharp, analytical minds. Annually, we open our doors to DPS Vasant Kunj students (Classes VI through XII) through an exclusive intra-school induction event. Membership is not handed out; it is earned strictly through performance on the battlefield of these induction quizzes.</p>
+        </div>
+    </section>
+
+<!-- The Architecture of a Deduction -->
+    <section id="methodology" class="section">
+        <h2 class="section-title reveal">THE ARCHITECTURE OF A DEDUCTION</h2>
+        
+
+        <!-- Phase 1: The 5-Step Roadmap -->
+        <section class="roadmap-section reveal">
+        
+        <!-- Spaced and Fixed Header -->
+        <div class="roadmap-header">
+            
+            <p class="roadmap-subtitle">The Grey Matters cognitive framework.</p>
+        </div>
+
+        <!-- The Rebuilt Horizontal Grid -->
+        <div class="roadmap-grid">
+            
+            <!-- STEP 01: ISOLATE -->
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3 class="step-title">ISOLATE</h3>
+                <p class="step-desc">Extract core variables from the provided narrative.</p>
+                <!-- Tooltip: BAKED IN FIX -->
+                <div class="step-detail">
+                    Break down the query into its absolute most basic factual components. Discard the fluff.
+                </div>
+            </div>
+
+            <!-- STEP 02: CONTEXTUALIZE -->
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3 class="step-title">CONTEXTUALIZE</h3>
+                <p class="step-desc">Frame variables within their respective academic domains.</p>
+                <!-- Tooltip: BAKED IN FIX -->
+                <div class="step-detail">
+                    Assign each fact to a domain. Ask yourself: Which academic field or historical era does this specific clue belong to?
+                </div>
+            </div>
+
+            <!-- STEP 03: INTERSECT -->
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3 class="step-title">INTERSECT</h3>
+                <p class="step-desc">Identify cross-disciplinary points of convergence.</p>
+                <!-- Tooltip: BAKED IN FIX -->
+                <div class="step-detail">
+                    Find the crossover. What single entity, person, or theory exists simultaneously in all of the identified domains?
+                </div>
+            </div>
+
+            <!-- STEP 04: ELIMINATE -->
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3 class="step-title">ELIMINATE</h3>
+                <p class="step-desc">Discard contradictory pathways and false positives.</p>
+                <!-- Tooltip: BAKED IN FIX -->
+                <div class="step-detail">
+                    Test your theory against the constraints of the query. If one variable contradicts the hypothesis, discard it entirely.
+                </div>
+            </div>
+
+            <!-- STEP 05: SYNTHESIZE -->
+            <div class="step">
+                <div class="step-number">05</div>
+                <h3 class="step-title">SYNTHESIZE</h3>
+                <p class="step-desc">Formulate a singular, logically sound absolute.</p>
+                <!-- Tooltip: BAKED IN FIX -->
+                <div class="step-detail">
+                    Fuse the surviving data points into the final, undeniable conclusion.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </div>
+        <div class="field-test-header">
+            <!-- Vertical connecting line -->
+            <div class="test-divider"></div>
+            
+            <h3 class="test-title">[ COGNITIVE SIMULATION ]</h3>
+            <p class="test-desc">
+                Deploy the 5-step architecture above to isolate, contextualize, and deduce the answer to the historical brief below.
+            </p>
+        </div>
+
+        <!-- Phase 2: The Application -->
+        <div class="application-container reveal">
+            <div class="question-box">
+                <p>
+                    In 1956, a pioneer of artificial intelligence designed the <em>Logic Theorist</em> program to mimic human problem-solving, essentially bridging the gap between <span id="target-1" class="muted-target">silicon circuits and biological grey matter</span>. Years later, this same pioneer won a Nobel Prize in Economics for theorizing that human decision-making is inherently flawed. He argued that because our brainpower, information, and time are strictly finite, we can never be the <span id="target-2" class="muted-target">perfectly rational actors</span> that classical models assume. What two-word term did he coin to describe this cognitive limitation?
+                </p>
+            </div>
+
+            <div class="analysis-board">
+                <button id="execute-btn" class="btn-formal">BEGIN DECONSTRUCTION</button>
+                
+                <!-- The 5-Step Sequential Breakdown -->
+                <div id="breakdown-sequence" class="breakdown-hidden">
+                    <div class="breakdown-row" id="b-step-1">
+                        <div class="b-label">01 // ISOLATE</div>
+                        <div class="b-text">Variables extracted: <em>"AI Pioneer (1956)"</em> + <em>"Economics Nobel"</em> + <em>"Flaws in perfect rationality"</em>.</div>
+                    </div>
+                    
+                    <div class="breakdown-row" id="b-step-2">
+                        <div class="b-label">02 // CONTEXTUALIZE</div>
+                        <div class="b-text">The 1956 AI reference points to the foundational Dartmouth Workshop era. The Nobel reference dictates a shift into behavioral economics.</div>
+                    </div>
+                    
+                    <div class="breakdown-row" id="b-step-3">
+                        <div class="b-label">03 // INTERSECT</div>
+                        <div class="b-text">The only individual bridging early computer science (Logic Theorist) and Nobel-laureate economics is polymath <strong>Herbert A. Simon</strong>.</div>
+                    </div>
+
+                    <div class="breakdown-row" id="b-step-4">
+                        <div class="b-label">04 // ELIMINATE</div>
+                        <div class="b-text">Classical economic models assume infinite cognitive capacity. Because Simon proved capacity is finite, "perfect rationality" is eliminated as a viable human trait.</div>
+                    </div>
+                    
+                    <div class="breakdown-row" id="b-step-5">
+                        <div class="b-label">05 // SYNTHESIZE</div>
+                        <div class="b-text">Simon's framework defining these cognitive limits is universally termed:</div>
+                    </div>
+                    
+                    <div class="final-answer" id="b-answer">BOUNDED RATIONALITY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- The Terminus (Final Axiom & Teaser) -->
+    <section id="terminus" class="section terminus-section">
+        <div class="terminus-content reveal">
+            <h2 class="axiom">
+                KNOWLEDGE IS FINITE.<br>
+                <span class="axiom-highlight">THOUGHT IS INFINITE.</span>
+            </h2>
+            
+            <!-- The Grand Induction Teaser -->
+            <div class="registry-teaser">
+                <div class="teaser-year">2026</div>
+                <div class="teaser-details">
+                    <span class="teaser-title">INTRA-SCHOOL INDUCTIONS</span>
+                    <span class="teaser-status">REGISTRATIONS COMMENCING SHORTLY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Institutional Sign-Off (Footer) -->
+    <footer class="institutional-footer reveal">
+        <div class="footer-grid">
+            
+            <!-- Branding & Origin -->
+            <div class="footer-column brand-column">
+                <div class="footer-identity">
+                    <!-- Reusing your logo for official branding -->
+                    <img src="images/logo.jpeg" alt="Grey Matters Crest" class="footer-crest">
+                    <div>
+                        <h3 class="footer-title">GREY MATTERS</h3>
+                        <p class="footer-sub">EST. 2006</p>
+                    </div>
+                </div>
+                <p class="footer-desc">The premier quizzing society of Delhi Public School Vasant Kunj, dedicated to the relentless pursuit of thought.</p>
+            </div>
+
+            <!-- Operations / Navigation -->
+            <div class="footer-column">
+                <h3 class="column-header">NAVIGATION</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Communications / Contact -->
+            <div class="footer-column">
+                <h4 class="column-header">COMMUNICATIONS</h4>
+                <div class="contact-details">
+                    <p>Delhi Public School Vasant Kunj</p>
+                    <p>Sector C, Pocket 5, Vasant Kunj</p>
+                    <p>New Delhi, 110070</p>
+                    <br>
+                    <p>SOCIETY EMAIL: <a href="mailto:dpsvk.greymatters@gmail.com" class="contact-link">dpsvk.greymatters@gmail.com</a></p>
+                    <p>SCHOOL EMAIL: <a href="mailto:principal@dpsvasantkunj.com" class="contact-link">principal@dpsvasantkunj.com</a></p>
+                    <p>INSTAGRAM: <a href="https://instagram.com/grey._.matters" target="_blank" class="contact-link">@grey._.matters</a></p>
+                    <p>LINKEDIN: <a href="https://linkedin.com/company/grey-matters-dpsvasantkunj" target="_blank" class="contact-link">Grey Matters</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-closure">
+            <p>&copy; 2026 Grey Matters Quizzing Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for the neural background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const milestone = document.querySelector('.milestone-container');
+            const body = document.body;
+
+            if (milestone) {
+                // When mouse enters, turn particles gold
+                milestone.addEventListener('mouseenter', () => {
+                    body.classList.add('gold-particles-active');
+                });
+
+                // When mouse leaves, revert particles to normal
+                milestone.addEventListener('mouseleave', () => {
+                    body.classList.remove('gold-particles-active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
