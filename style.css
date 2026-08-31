@@ -2576,122 +2576,69 @@ p, h1, h2, h3, h4, h5, h6 {
     pointer-events: none !important; 
 }
 
+
 /* ==========================================
-   MOBILE NAV BAR: SLIM & SWIPEABLE
+   MOBILE OVERRIDE: SEVERE LAYOUT FIX
    ========================================== */
 @media screen and (max-width: 768px) {
-    /* 1. Brutally crush the padding */
+
+    /* 1. FIX NAV BAR CUTTING OFF TOP TEXT */
+    /* This pushes your whole website down so the nav doesn't cover "THOUGHT IS INFINITE" */
+    body {
+        padding-top: 90px !important; 
+    }
+
+    /* 2. REBUILD NAV BAR STRUCTURE (CENTER STACK) */
     nav, .global-nav {
-        padding: 8px 12px !important; 
-    }
-
-    /* 2. Shrink the Grey Matters logo and text */
-    .nav-brand img { width: 30px !important; }
-    .nav-brand h1, .nav-brand span { font-size: 1.1rem !important; margin: 0 !important; }
-
-    /* 3. Turn links into a compact, horizontal swipe-menu */
-    .nav-links {
         display: flex !important;
-        flex-wrap: nowrap !important; 
-        overflow-x: auto !important;  
-        -webkit-overflow-scrolling: touch;
-        
-        /* THE FIX: Forces links to start at the left edge instead of center-locking */
-        justify-content: flex-start !important; 
-        
-        gap: 20px !important; /* Slightly larger gap for easier tapping */
-        padding-bottom: 5px;
-        margin-top: 5px !important;
-        
-        /* Adds a buffer so the very last link doesn't get jammed against the right screen edge */
-        padding-right: 2rem !important; 
-    }
-
-    /* 4. Hide the ugly scrollbar for a clean terminal look */
-    .nav-links::-webkit-scrollbar { 
-        display: none; 
-    }
-}
-
-/* ==========================================
-   NUCLEAR WIDTH OVERRIDE (ANTI-BLEED)
-   ========================================== */
-@media screen and (max-width: 768px) {
-    
-    /* 1. Target every section and container on the page */
-    section, footer, section div, footer div, main div {
-        min-width: 0 !important; /* Destroys any minimum width commands */
-        max-width: 100vw !important; /* Nothing can be wider than the screen */
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    /* 2. Force any stubborn grids or flex rows to stack vertically */
-    .cognitive-simulation, .simulation-container, .footer-container {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 1.5rem !important;
-    }
-
-    /* 3. Crush any images or terminal boxes that are too wide */
-    img, video, canvas, iframe {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-
-    .cognitive-simulation, 
-    .simulation-container, 
-    .terminal-window {
-        /* 1. Forces the container to stay physically open even if JS empties it */
-        min-height: 500px !important; 
-        
-        /* 2. Ensures the JS-generated text isn't hidden outside the box */
-        overflow-y: visible !important; 
-        
-        /* 3. Creates a stable anchor for absolute-positioned terminal text */
-        position: relative !important; 
-    }
-    
-    /* 4. If your JS creates a new inner box, stop our previous CSS from crushing it */
-    .cognitive-simulation .active, 
-    .terminal-window.active {
-        display: block !important; 
-        height: auto !important;
-    }
-
-    /* ==========================================
-       HERO COLLISION OVERRIDE 
-       ========================================== */
-
-    /* 1. Target the box holding the 2026 and text */
-    .hero-box, .induction-container {
-        display: flex !important;
-        flex-direction: column !important; /* Stacks 2026 and text vertically */
-        align-items: center !important;
+        flex-direction: column !important; /* Stacks logo on top, links on bottom */
+        align-items: center !important; 
         justify-content: center !important;
-        padding: 2rem 1rem !important;
+        padding: 15px !important;
+        height: auto !important; /* Lets it expand vertically */
+    }
+
+    /* Fix "Grey Matters" logo */
+    .nav-brand {
+        margin-bottom: 15px !important;
         text-align: center !important;
     }
 
-    /* 2. Tame the giant 2026 text */
-    .giant-year, .year-text, h1.year {
-        position: relative !important; /* Removes absolute overlapping */
-        transform: none !important; /* Kills any coordinates pulling it sideways */
-        font-size: 3.5rem !important; /* Scales it down for phones */
-        margin-bottom: 1rem !important; /* Pushes the induction text down */
-        line-height: 1 !important;
+    /* Fix the links overlapping */
+    .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important; /* CRITICAL: Allows links to drop to a new line if they run out of room */
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 15px !important;
+        padding: 0 !important;
     }
 
-    /* 3. Force the Induction text to wrap and stay inside the box */
-    .induction-text, .hero-box h2, .hero-box p {
+    /* 3. FIX THE 2026 INDUCTION BOX COLLISION */
+    /* Target the specific glass box (Change '.glass-box' to match your actual HTML class) */
+    .glass-box, .hero-box {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks 2026 on top of Induction text */
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 2rem !important;
+    }
+
+    /* Stop 2026 from floating over text */
+    .glass-box h1, .giant-year, .year-text {
+        position: relative !important; /* Kills the absolute coordinates forcing the overlap */
+        transform: none !important;
+        font-size: 3.5rem !important; /* Scales down for phone */
+        margin-bottom: 20px !important; /* Adds space between 2026 and the text */
+    }
+
+    /* Force "INDUCTIONS" to wrap inside the box */
+    .glass-box p, .glass-box h2, .induction-text {
         position: relative !important;
-        font-size: 1.1rem !important; 
-        white-space: normal !important; /* FORCES wrapping */
+        white-space: normal !important; /* CRITICAL: Forces "INDUCTIONS" to wrap to the next line instead of bleeding off the screen */
         word-wrap: break-word !important; 
-        letter-spacing: 2px !important;
-        line-height: 1.5 !important;
         width: 100% !important;
+        letter-spacing: 2px !important;
     }
 }
