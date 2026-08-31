@@ -2439,3 +2439,259 @@ nav.scrolled {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Settles into a white glow */
     }
 }
+
+/* ==========================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES
+   ========================================== */
+
+/* TABLET VIEW (Screens smaller than 992px) */
+@media screen and (max-width: 992px) {
+    /* Compress the 5-step roadmap into 2 columns instead of a flat horizontal line */
+    .roadmap-container { 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    /* Disable the horizontal connector lines so they don't break the layout */
+    .roadmap-connector, .step-line {
+        display: none !important; 
+    }
+}
+
+/* MOBILE PHONE VIEW (Screens smaller than 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Scale down the Hero Section */
+    .hero-logo img {
+        width: 180px !important; /* Prevents the brain from overpowering the screen */
+    }
+    
+    h1, .hero-title {
+        font-size: 2.2rem !important; /* Shrinks the massive WE QUIZ text */
+        text-align: center;
+    }
+
+    /* 2. The Navigation Bar Restructure */
+    nav, .global-nav {
+        padding: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Allows links to wrap to a second line if they run out of space */
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+        font-size: 0.85rem; /* Slightly smaller text for mobile thumbs */
+    }
+
+    /* 3. The Roadmap (Single Column Stack) */
+    .roadmap-container {
+        grid-template-columns: 1fr; /* Stacks the steps perfectly vertically */
+        text-align: center;
+    }
+
+    /* 4. Padding Adjustments (Prevent text from touching screen edges) */
+    section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* ==========================================
+       LOWER FRAME FIX: COGNITIVE SIMULATION
+       ========================================== */
+
+    /* 1. Force all grids in the lower half to collapse into a single column */
+    .cognitive-simulation, 
+    .simulation-container,
+    .simulation-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Forces 1 vertical column */
+        gap: 2rem !important;
+        padding: 1rem !important; /* Removes massive desktop padding */
+        width: 100% !important;
+    }
+
+    /* 2. Force any Flexbox rows to stack vertically */
+    .cognitive-simulation .flex-row,
+    .content-row {
+        display: flex !important;
+        flex-direction: column !important; 
+        align-items: center !important;
+    }
+
+    /* 3. Stop internal boxes from bleeding outside the parent */
+    .cognitive-simulation div, 
+    .terminal-window,
+    .simulation-box {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 4. Ensure redacted text and long strings wrap properly */
+    .cognitive-simulation p, 
+    .redacted {
+        font-size: 0.95rem !important;
+        white-space: normal !important; 
+    }
+
+/* ==========================================
+   VIEWPORT LOCK & PARTICLE STABILIZATION
+   ========================================== */
+
+/* 1. Kills all horizontal bleed instantly */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden !important; 
+}
+
+/* 2. Forces padding to behave mathematically */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 3. Prevents large text from breaking the screen width on phones */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* 4. The Particle Matrix Fix */
+/* Note: Change #particles-js to your canvas class if you named it something else */
+#particles-js, canvas, .particle-container {
+    position: fixed !important; 
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    overflow: hidden !important;
+    
+    /* CRITICAL: Stops the particles from blocking your fingers on touch screens */
+    pointer-events: none !important; 
+}
+
+/* ==========================================
+   MOBILE NAV BAR: SLIM & SWIPEABLE
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* 1. Brutally crush the padding */
+    nav, .global-nav {
+        padding: 8px 12px !important; 
+    }
+
+    /* 2. Shrink the Grey Matters logo and text */
+    .nav-brand img { width: 30px !important; }
+    .nav-brand h1, .nav-brand span { font-size: 1.1rem !important; margin: 0 !important; }
+
+    /* 3. Turn links into a compact, horizontal swipe-menu */
+    .nav-links {
+        display: flex !important;
+        flex-wrap: nowrap !important; 
+        overflow-x: auto !important;  
+        -webkit-overflow-scrolling: touch;
+        
+        /* THE FIX: Forces links to start at the left edge instead of center-locking */
+        justify-content: flex-start !important; 
+        
+        gap: 20px !important; /* Slightly larger gap for easier tapping */
+        padding-bottom: 5px;
+        margin-top: 5px !important;
+        
+        /* Adds a buffer so the very last link doesn't get jammed against the right screen edge */
+        padding-right: 2rem !important; 
+    }
+
+    /* 4. Hide the ugly scrollbar for a clean terminal look */
+    .nav-links::-webkit-scrollbar { 
+        display: none; 
+    }
+}
+
+/* ==========================================
+   NUCLEAR WIDTH OVERRIDE (ANTI-BLEED)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Target every section and container on the page */
+    section, footer, section div, footer div, main div {
+        min-width: 0 !important; /* Destroys any minimum width commands */
+        max-width: 100vw !important; /* Nothing can be wider than the screen */
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 2. Force any stubborn grids or flex rows to stack vertically */
+    .cognitive-simulation, .simulation-container, .footer-container {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+    }
+
+    /* 3. Crush any images or terminal boxes that are too wide */
+    img, video, canvas, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .cognitive-simulation, 
+    .simulation-container, 
+    .terminal-window {
+        /* 1. Forces the container to stay physically open even if JS empties it */
+        min-height: 500px !important; 
+        
+        /* 2. Ensures the JS-generated text isn't hidden outside the box */
+        overflow-y: visible !important; 
+        
+        /* 3. Creates a stable anchor for absolute-positioned terminal text */
+        position: relative !important; 
+    }
+    
+    /* 4. If your JS creates a new inner box, stop our previous CSS from crushing it */
+    .cognitive-simulation .active, 
+    .terminal-window.active {
+        display: block !important; 
+        height: auto !important;
+    }
+
+    /* ==========================================
+       HERO COLLISION OVERRIDE 
+       ========================================== */
+
+    /* 1. Target the box holding the 2026 and text */
+    .hero-box, .induction-container {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks 2026 and text vertically */
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 2rem 1rem !important;
+        text-align: center !important;
+    }
+
+    /* 2. Tame the giant 2026 text */
+    .giant-year, .year-text, h1.year {
+        position: relative !important; /* Removes absolute overlapping */
+        transform: none !important; /* Kills any coordinates pulling it sideways */
+        font-size: 3.5rem !important; /* Scales it down for phones */
+        margin-bottom: 1rem !important; /* Pushes the induction text down */
+        line-height: 1 !important;
+    }
+
+    /* 3. Force the Induction text to wrap and stay inside the box */
+    .induction-text, .hero-box h2, .hero-box p {
+        position: relative !important;
+        font-size: 1.1rem !important; 
+        white-space: normal !important; /* FORCES wrapping */
+        word-wrap: break-word !important; 
+        letter-spacing: 2px !important;
+        line-height: 1.5 !important;
+        width: 100% !important;
+    }
+}
