@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png?v=2">
 </head>
@@ -40,6 +41,91 @@
         <h1 class="page-title">JOIN US</h1>
         <p class="page-subtitle">The pathway to entering Grey Matters.</p>
     </header>
+
+<!-- LIVE REGISTRATION TERMINAL (Replaced CTA) -->
+    <section id="register" class="registration-section reveal" style="padding-top: 2rem; padding-bottom: 6rem; display: flex; justify-content: center;">
+        <div class="terminal-form-container elegant-theme">
+            
+            <div class="form-header">
+                <div class="system-status">
+                    <span class="pulse-dot"></span> <span class="sys-text">LIVE: 20TH ANNIVERSARY INTRA</span>
+                </div>
+                <h3>REGISTRATION</h3>
+                
+                <!-- Event Details Block -->
+                <div class="event-specs">
+                    <div class="spec-block">
+                        <span class="spec-label">DATE:</span>
+                        <span class="spec-value">21 & 22 AUGUST</span>
+                    </div>
+                    <div class="spec-block">
+                        <span class="spec-label">VENUE:</span>
+                        <span class="spec-value">MINI AUDITORIUM</span>
+                    </div>
+                </div>
+
+                <p class="blink">Please enter your details below.</p>
+            </div>
+            
+            <!-- Script & Iframe to trap the Google redirect -->
+            <script>var submitted=false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+            onload="if(submitted) { alert('Registration successful. Thank you for applying.'); window.location.reload(); }"></iframe>
+
+            <!-- 1. PASTE YOUR LONG URL HERE, CHANGE "viewform" TO "formResponse" -->
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSfR6gcfV3ohI5kXGGyTHzKcAtda3QgxEoZa1qZlaCqd5078Gw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                
+                <div class="input-group">
+                    <label for="name">FULL NAME</label>
+                    <!-- 2. REPLACE WITH YOUR FULL NAME ENTRY NUMBER -->
+                    <input type="text" id="name" name="entry.179581875" required autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label for="class">CLASS</label>
+                    <!-- 3. REPLACE WITH YOUR CLASS ENTRY NUMBER -->
+                    <select id="class" name="entry.837101808" required>
+                        <option value="" disabled selected>Select Class</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="section">SECTION</label>
+                    <!-- 4. REPLACE WITH YOUR SECTION ENTRY NUMBER -->
+                    <select id="section" name="entry.2004192734" required>
+                        <option value="" disabled selected>Select Section</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">PHONE NUMBER</label>
+                    <!-- 5. REPLACE WITH YOUR PHONE ENTRY NUMBER -->
+                    <input type="tel" id="phone" name="entry.538603931" required autocomplete="off">
+                </div>
+
+                <button type="submit" class="submit-btn elegant-btn">SUBMIT</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Main Content Section -->
     <section class="section reveal" style="padding-top: 0;">
@@ -123,73 +209,6 @@
         </div>
     </section>
 
-    <!-- LIVE REGISTRATION TERMINAL (Replaced CTA) -->
-    <section id="register" class="registration-section reveal" style="padding-top: 0; padding-bottom: 8rem; display: flex; justify-content: center;">
-        <div class="terminal-form-container">
-            <div class="form-header">
-                <h3>REGISTRATION</h3>
-                <p class="blink">Please enter your details below.</p>
-            </div>
-            
-            <!-- Script & Iframe to trap the Google redirect -->
-            <script>var submitted=false;</script>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-            onload="if(submitted) { alert('Registration successful. Thank you for applying.'); window.location.reload(); }"></iframe>
-
-            <!-- 1. PASTE YOUR LONG URL HERE, CHANGE "viewform" TO "formResponse" -->
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSfR6gcfV3ohI5kXGGyTHzKcAtda3QgxEoZa1qZlaCqd5078Gw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-                
-                <div class="input-group">
-                    <label for="name">FULL NAME</label>
-                    <!-- 2. REPLACE WITH YOUR FULL NAME ENTRY NUMBER -->
-                    <input type="text" id="name" name="entry.179581875" required autocomplete="off">
-                </div>
-
-                <div class="input-group">
-                    <label for="class">CLASS</label>
-                    <!-- 3. REPLACE WITH YOUR CLASS ENTRY NUMBER -->
-                    <select id="class" name="entry.837101808" required>
-                        <option value="" disabled selected>Select Class</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="section">SECTION</label>
-                    <!-- 4. REPLACE WITH YOUR SECTION ENTRY NUMBER -->
-                    <select id="section" name="entry.2004192734" required>
-                        <option value="" disabled selected>Select Section</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="E">E</option>
-                        <option value="F">F</option>
-                        <option value="G">G</option>
-                        <option value="H">H</option>
-                        <option value="I">I</option>
-                        <option value="J">J</option>
-                        <option value="K">K</option>
-                        <option value="L">L</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="phone">PHONE NUMBER</label>
-                    <!-- 5. REPLACE WITH YOUR PHONE ENTRY NUMBER -->
-                    <input type="tel" id="phone" name="entry.538603931" required autocomplete="off">
-                </div>
-
-                <button type="submit" class="submit-btn">SUBMIT</button>
-            </form>
-        </div>
-    </section>
 
     <!-- Institutional Sign-Off (Footer) -->
     <footer class="institutional-footer reveal">
