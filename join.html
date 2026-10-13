@@ -123,12 +123,61 @@
         </div>
     </section>
 
-    <!-- 2026 Call to Action -->
-    <section class="section reveal" style="padding-top: 0; padding-bottom: 8rem;">
-        <div class="cta-terminal">
-            <h2 class="cta-title">INTRA 2026 COMING SOON</h2>
-            <p class="cta-status">REGISTRATIONS OPENING SHORTLY</p>
-            <div class="cta-pulse-bar"></div>
+    <!-- LIVE REGISTRATION TERMINAL (Replaced CTA) -->
+    <section id="register" class="registration-section reveal" style="padding-top: 0; padding-bottom: 8rem; display: flex; justify-content: center;">
+        <div class="terminal-form-container">
+            <div class="form-header">
+                <h3>REGISTRATION</h3>
+                <p class="blink">Please enter your details below.</p>
+            </div>
+            
+            <!-- Script & Iframe to trap the Google redirect -->
+            <script>var submitted=false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+            onload="if(submitted) { alert('Registration successful. Thank you for applying.'); window.location.reload(); }"></iframe>
+
+            <!-- 1. PASTE YOUR LONG URL HERE, CHANGE "viewform" TO "formResponse" -->
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSfR6gcfV3ohI5kXGGyTHzKcAtda3QgxEoZa1qZlaCqd5078Gw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                
+                <div class="input-group">
+                    <label for="name">FULL NAME</label>
+                    <!-- 2. REPLACE WITH YOUR FULL NAME ENTRY NUMBER -->
+                    <input type="text" id="name" name="entry.179581875" required autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label for="class">CLASS</label>
+                    <!-- 3. REPLACE WITH YOUR CLASS ENTRY NUMBER -->
+                    <select id="class" name="entry.837101808" required>
+                        <option value="" disabled selected>Select Class</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="section">SECTION</label>
+                    <!-- 4. REPLACE WITH YOUR SECTION ENTRY NUMBER -->
+                    <select id="section" name="entry.2004192734" required>
+                        <option value="" disabled selected>Select Section</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">PHONE NUMBER</label>
+                    <!-- 5. REPLACE WITH YOUR PHONE ENTRY NUMBER -->
+                    <input type="tel" id="phone" name="entry.538603931" required autocomplete="off">
+                </div>
+
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
         </div>
     </section>
 

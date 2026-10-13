@@ -718,6 +718,108 @@ h1, .nav-brand {
     letter-spacing: 1px;
 }
 
+/* ==========================================
+   REGISTRATION TERMINAL (HEADLESS FORM)
+   ========================================== */
+.registration-section {
+    padding: 4rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.terminal-form-container {
+    width: 100%;
+    max-width: 600px; 
+    background: rgba(0, 0, 0, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+}
+
+.form-header h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+
+.blink {
+    color: #888;
+    animation: blinker 1.5s linear infinite;
+    margin-bottom: 2.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+@keyframes blinker { 
+    50% { opacity: 0; } 
+}
+
+.input-group {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Base styling for both text inputs and dropdown selects */
+.input-group input, 
+.input-group select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: none; /* Removes default iOS styling */
+    appearance: none;
+}
+
+/* Glowing underline effect when active */
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-bottom: 1px solid #fff; 
+}
+
+/* Dropdown list styling */
+.input-group select option {
+    background: #111; 
+    color: #fff;
+    padding: 10px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
 /* Mobile Responsiveness for Footer */
 @media (max-width: 768px) {
     .footer-grid {
